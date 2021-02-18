@@ -3,7 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-configmap
-  {{- template "mychart.labels" }}   #_helpers.tpl a define kora label akhane template dia use kora hocche
+  {{- template "chart1.labels" }}   #_helpers.tpl a define kora label akhane template dia use kora hocche
 
 data:
   myvalue: "Hello chart1"
