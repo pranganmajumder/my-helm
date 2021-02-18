@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  myvalue: "Hello chart1"
+  drink: {{  .Values.favourite.drink |  quote }}
+  food: {{  .Values.favourite.food | upper | quote  }}
+  {{- if eq .Values.favourite.drink "coffee" }}
+  cup: true
+  {{- end }}
+  preference: {{ print "I prefer  " .Values.favourite.drink " to juice" }}
