@@ -29,3 +29,10 @@ data:
     {{- end }}
   {{ include "chart1.app" . | indent 2}}
 
+  #file
+  {{- $files := .Files }}
+  {{- range tuple "config1.toml" "config2.toml" "config3.toml" }}
+  {{ . }}: |-
+    {{ $files.Get . }}
+  {{- end }}
+
