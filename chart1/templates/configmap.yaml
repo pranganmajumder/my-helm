@@ -4,11 +4,11 @@ metadata:
   name: {{ .Release.Name }}-configmap
 data:
   myvalue: "Hello chart1"
-  {{- with .Values }}
-  drink: {{  .favourite.drink |  quote }}
-  food: {{  .favourite.food | upper | quote  }}
-  {{- if eq .favourite.drink "coffee" }}
+  {{- with .Values.favourite }}
+  drink: {{  .drink |  quote }}
+  food: {{  .food | upper | quote  }}
+  {{- if eq .drink "coffee" }}
   cup: true
   {{- end }}
-  preference: {{ print "I prefer  " .favourite.drink " to juice" }}
+  preference: {{ print "I prefer  " .drink " to juice" }}
   {{- end }}
