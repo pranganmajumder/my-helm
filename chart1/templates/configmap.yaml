@@ -4,12 +4,23 @@ metadata:
   name: {{ .Release.Name }}-configmap
 data:
   myvalue: "Hello chart1"
-  {{- with .Values.favourite }} # start with scope
+
+  {{- $relname:= .Release.Name -}}
+
+  {{- with .Values.favourite }}
   drink: {{  .drink |  quote }}
   food: {{  .food | upper | quote  }}
+
   {{- if eq .drink "coffee" }}
   cup: true
   {{- end }}
+
   preference: {{ print "I prefer  " .drink  " to juice" }}
-  release: {{ $.Release.Name }}  #Here $ is mapped to the root scope , without $ sign .Release.Name cannot be used, because of with restricted scope
-  {{- end }} #end of with scope
+  release: {{ $relname }}
+  {{- end }}
+
+  toppings: |-
+    {{- range $index, $topping := .Values.pizzaToppings }}
+    - {{ $index }} : {{ $topping }}
+    {{- end }}
+
