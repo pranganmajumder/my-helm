@@ -37,3 +37,6 @@ data:
     {{ $files.Get . }}
   {{- end }}
 
+  #global value
+  salad: {{ .Values.global.salad }}
+
