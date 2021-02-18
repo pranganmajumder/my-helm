@@ -5,3 +5,9 @@
 * `helm get manifest full-coral` prints out all of the Kubernetes resources that were uploaded to the server
 * `helm uninstall full-coral` uninstall our release
 * `helm install --debug --dry-run goodly-guppy ./chart1`  make it easier to test your code.
+
+
+##### How to run:
+* `helm install full-coral ./chart1` to install 
+* `helm get manifest full-coral` to see the object
+* now uninstall it `helm uninstall full-coral`
