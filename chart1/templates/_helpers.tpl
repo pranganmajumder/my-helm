@@ -8,3 +8,13 @@
     chart: {{ .Chart.Name }}
     version: {{ .Chart.Version }}
 {{- end }}
+
+
+
+
+{{/* avabe use korle include use kora lage */}}
+
+{{- define "chart1.app" }}
+app_name: {{ .Chart.Name }}
+app_version: "{{ .Chart.Version }}"
+{{- end }}
