@@ -11,7 +11,7 @@ data:
 
   {{- $relname:= .Release.Name -}} #assign variable
 
-  {{- with .Values.favourite }}  # with scope
+  {{- with .Values.favourite }}  # start with scope
   drink: {{  .drink |  quote }}
   food: {{  .food | upper | quote  }}
 
@@ -20,10 +20,11 @@ data:
   {{- end }}
 
   preference: {{ print "I prefer  " .drink  " to juice" }} #print function
-  release: {{ $.Release.Name }} # usause of dollar sign
-  {{- end }}
+  release: {{ $.Release.Name }} # use of dollar sign
+  {{- end }} #end of with scope
 
-  toppings: |- #for loop
+  #for loop
+  toppings: |-
     {{- range $index, $topping := .Values.pizzaToppings }}
     - {{ $index }} : {{ $topping }}
     {{- end }}

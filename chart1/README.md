@@ -4,8 +4,8 @@
     * `helm install full-coral ./chart1 --set favouriteDrink=juice` set variable favouriteDrink=juice from command line
 * `helm get manifest full-coral` prints out all of the Kubernetes resources that were uploaded to the server
 * `helm uninstall full-coral` uninstall our release
-* `helm install --debug --dry-run goodly-guppy ./chart1`  make it easier to test your code.
-
+* `helm install --debug --dry-run goodly-guppy ./chart1`  make it easier to test your code for debugging. It'll create a chart dynamically
+    * or use `helm install --dry-run --debug full-coral ./chart1` get the all information including sub chart
 
 ##### How to run:
 * `helm install full-coral ./chart1` to install 
